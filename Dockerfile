@@ -8,13 +8,14 @@ ENV PORT=443
 ENV PSK=
 ENV OBFS=tls
 
-COPY entrypoint.sh /usr/local/bin/
+COPY entrypoint.sh /usr/bin/
 
 RUN wget --no-check-certificate -O snell.zip $SNELL_SERVER_PACKAGE && \
     unzip snell.zip && \
     rm -f snell.zip && \
     chmod +x snell-server && \
+    mkdir -p /usr/local/bin/ && \
     mv snell-server /usr/local/bin/ && \
-    chmod +x /usr/bin/local/entrypoint.sh
+    chmod +x /usr/bin/entrypoint.sh
 
 ENTRYPOINT ["entrypoint.sh"]
