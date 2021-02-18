@@ -8,7 +8,7 @@ ENV PORT=443
 ENV PSK=
 ENV OBFS=tls
 
-COPY entrypoint.sh /usr/bin/
+COPY entrypoint.sh /usr/local/bin/
 
 RUN wget --no-check-certificate -O snell.zip $SNELL_SERVER_PACKAGE && \
     unzip snell.zip && \
