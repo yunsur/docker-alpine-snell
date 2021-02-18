@@ -14,7 +14,7 @@ RUN wget --no-check-certificate -O snell.zip $SNELL_SERVER_PACKAGE && \
     unzip snell.zip && \
     rm -f snell.zip && \
     chmod +x snell-server && \
-    mv snell-server /usr/bin/ && \
-    chmod +x /usr/bin/entrypoint.sh
+    mv snell-server /usr/local/bin/ && \
+    chmod +x /usr/bin/local/entrypoint.sh
 
 ENTRYPOINT ["entrypoint.sh"]

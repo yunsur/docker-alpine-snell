@@ -1,6 +1,6 @@
 #!/bin/ash
 
-BIN="/usr/bin/snell-server"
+BIN="/usr/local/bin/snell-server"
 CONF="/etc/snell/snell-server.conf"
 
 # reuse existing config when the container restarts
