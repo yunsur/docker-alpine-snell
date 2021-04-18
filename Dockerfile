@@ -1,7 +1,7 @@
 FROM yunsur/alpine-glibc
 
 ARG SNELL_SERVER_PACKAGE_URL="https://github.com/surge-networks/snell/releases/download"
-ARG SNELL_SERVER_PACKAGE_VERSION="v2.0.3"
+ARG SNELL_SERVER_PACKAGE_VERSION="v2.0.4"
 
 ENV PORT=443
 ENV OBFS=tls
