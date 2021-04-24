@@ -18,4 +18,6 @@ RUN SNELL_SERVER_PACKAGE_FILENAME="snell-server-$SNELL_SERVER_PACKAGE_VERSION-li
     mv snell-server /usr/local/bin/ && \
     chmod +x /usr/local/bin/docker-entrypoint.sh
 
+VOLUME /etc/snell
+
 ENTRYPOINT ["docker-entrypoint.sh"]
