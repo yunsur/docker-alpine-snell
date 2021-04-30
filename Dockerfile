@@ -1,23 +1,24 @@
 FROM yunsur/alpine-glibc
 
-ARG PACKAGE_URL="https://github.com/surge-networks/snell/releases/download"
-ARG PACKAGE_VERSION="v2.0.4"
-ARG PACKAGE_PREFIX="snell-server-${PACKAGE_VERSION}-linux-amd64"
-ARG PACKAGE_SUFFIX=".zip"
-ARG PACKAGE_FILENAME="$PACKAGE_PREFIX$PACKAGE_SUFFIX"
+ARG PGK_URL="https://github.com/surge-networks/snell/releases/download"
+ARG PKG_VERSION="v2.0.4"
+ARG PKG_PREFIX="snell-server-${PKG_VERSION}-linux-amd64"
+ARG PKG_SUFFIX=".zip"
+ARG PKG_NAME="$PKG_PREFIX$PKG_SUFFIX"
 
 ENV PORT=443
 ENV OBFS=tls
 ENV PSK=
 
 COPY docker-entrypoint.sh /usr/local/bin/
+COPY snell-server.conf.template /etc/snell/snell-server.conf.template
 
-RUN wget --no-check-certificate $PACKAGE_URL/$PACKAGE_VERSION/$PACKAGE_FILENAME && \
-    unzip $PACKAGE_FILENAME && \
+RUN wget --no-check-certificate $PKG_URL/$PKG_VERSION/$PKG_NAME && \
+    unzip $PKG_NAME && \
     cp snell-server /usr/local/bin/ && \
     chmod +x snell-server && \
     chmod +x /usr/local/bin/docker-entrypoint.sh && \
-    rm -f $PACKAGE_FILENAME
+    rm -f $PKG_NAME
 
 VOLUME /etc/snell
 
