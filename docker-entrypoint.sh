@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 BIN="/usr/local/bin/snell-server"
 CONF="/etc/snell/snell-server.conf"
 TEMPLATE="/etc/snell/snell-server.conf.template"
@@ -10,8 +12,15 @@ run() {
         echo "Using generated PSK: ${PSK}"
     fi
 
-    envsubst '${PORT} ${PSK} ${OBFS}' < ${TEMPLATE} > ${CONF}
+    envsubst ' \
+        ${PORT} \
+        ${PSK} \
+        ${OBFS} \
+    ' < ${TEMPLATE} > ${CONF}
+
     ${BIN} -c ${CONF}
 }
 
 run
+
+exec "$@"
