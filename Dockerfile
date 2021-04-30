@@ -1,6 +1,6 @@
 FROM yunsur/alpine-glibc
 
-ARG PGK_URL="https://github.com/surge-networks/snell/releases/download"
+ARG PKG_URL="https://github.com/surge-networks/snell/releases/download"
 ARG PKG_VERSION="v2.0.4"
 ARG PKG_PREFIX="snell-server-${PKG_VERSION}-linux-amd64"
 ARG PKG_SUFFIX=".zip"
