@@ -23,3 +23,5 @@ RUN wget --no-check-certificate $PKG_URL/$PKG_VERSION/$PKG_NAME && \
 VOLUME /etc/snell
 
 ENTRYPOINT ["docker-entrypoint.sh"]
+
+CMD ["/usr/local/bin/snell-server", "-c", "/etc/snell/snell-server.conf"]
