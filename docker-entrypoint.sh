@@ -1,7 +1,5 @@
 #!/bin/sh
 
-set -e
-
 CONF="/etc/snell/snell-server.conf"
 TEMPLATE="/etc/snell/snell-server.conf.template"
 
